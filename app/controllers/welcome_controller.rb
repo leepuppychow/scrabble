@@ -5,6 +5,8 @@ class WelcomeController < ApplicationController
   end
 
   def create
+    validate = ValidateWordService.new(params[:word])
+
     @word = params[:word]
 
     @connection = Faraday.new("https://od-api.oxforddictionaries.com/api/v1") do |faraday|
@@ -20,7 +22,7 @@ class WelcomeController < ApplicationController
     if response.status == 200
       body = JSON.parse(response.body, symbolize_names: true)
       @root = body[:results].first[:lexicalEntries].first[:inflectionOf].first[:id]
-      render :index
+      render :valid
     elsif response.status == 404
       render :invalid
     end
