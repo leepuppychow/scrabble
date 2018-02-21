@@ -1,10 +1,5 @@
 require 'rails_helper'
 
-# Background:
-# * This story should use the Oxford Dictionaries API https://developer.oxforddictionaries.com/documentation
-# * Use endpoint "GET /inflections/{source_lang}/{word_id}" under the "Lemmatron" heading
-
-
 describe "As a user when I visit the '/' path" do
   context "And I fill in a text box with foxes and click Validate Word" do
     it "should see that foxes is valid and its root form is fox" do

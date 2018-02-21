@@ -6,7 +6,7 @@ class Api::V1::GamesController < ApiController
 
   def create
     if valid_word?(params[:word])
-      Play.create!(user_id: current_player.id,
+      Play.create(user_id: current_player.id,
                     game_id: current_game.id,
                     word: params[:word])
       render json: current_game
@@ -27,7 +27,7 @@ class Api::V1::GamesController < ApiController
 
     def valid_word?(word)
       validate = ValidateWordService.new(word)
-      return true if validate.status_code == 200 
+      return true if validate.status_code == 200
     end
 
 end
