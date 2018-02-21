@@ -1,5 +1,12 @@
 class WelcomeController < ApplicationController
+
   def index
+
+  end
+
+  def create
+    @word = params[:word]
+
     @connection = Faraday.new("https://od-api.oxforddictionaries.com/api/v1") do |faraday|
       faraday.request :url_encoded
       faraday.adapter Faraday.default_adapter
@@ -8,7 +15,14 @@ class WelcomeController < ApplicationController
       faraday.headers['app_key'] = ENV['OXFORD_APP_KEY']
     end
 
-    response = @connection.get('entries/en/ace')
+    response = @connection.get("inflections/en/#{@word}")
+
+    binding.pry
     body = JSON.parse(response.body, symbolize_names: true)
+
+    @root = body[:results].first[:lexicalEntries].first[:inflectionOf].first[:id]
+
+    render :index
+
   end
 end

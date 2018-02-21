@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://od-api.oxforddictionaries.com/api/v1/inflections/en/foxes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      App-Id:
+      - aec7fd15
+      App-Key:
+      - 32b097312453f54f4de69b9d8c63f47e
+      User-Agent:
+      - Faraday v0.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 21 Feb 2018 16:29:04 GMT
+      Server:
+      - openresty/1.9.7.4
+      Version:
+      - v3.6.1-32-gd5e2d53
+      Content-Length:
+      - '1667'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "metadata": {
+                "provider": "Oxford University Press"
+            },
+            "results": [
+                {
+                    "id": "foxes",
+                    "language": "en",
+                    "lexicalEntries": [
+                        {
+                            "grammaticalFeatures": [
+                                {
+                                    "text": "Third",
+                                    "type": "Person"
+                                },
+                                {
+                                    "text": "Singular",
+                                    "type": "Number"
+                                },
+                                {
+                                    "text": "Present",
+                                    "type": "Tense"
+                                }
+                            ],
+                            "inflectionOf": [
+                                {
+                                    "id": "fox",
+                                    "text": "fox"
+                                }
+                            ],
+                            "language": "en",
+                            "lexicalCategory": "Verb",
+                            "text": "foxes"
+                        },
+                        {
+                            "grammaticalFeatures": [
+                                {
+                                    "text": "Plural",
+                                    "type": "Number"
+                                }
+                            ],
+                            "inflectionOf": [
+                                {
+                                    "id": "fox",
+                                    "text": "fox"
+                                }
+                            ],
+                            "language": "en",
+                            "lexicalCategory": "Noun",
+                            "text": "foxes"
+                        }
+                    ],
+                    "word": "foxes"
+                }
+            ]
+        }
+    http_version: 
+  recorded_at: Wed, 21 Feb 2018 16:29:04 GMT
+recorded_with: VCR 4.0.0

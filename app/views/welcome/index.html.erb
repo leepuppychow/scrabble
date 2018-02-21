@@ -1,0 +1,15 @@
+<%= form_tag do %>
+  <%= text_field_tag :word, nil, placeholder: "Enter a word" %>
+  <%= submit_tag "Validate Word" %>
+<% end %>
+
+<% if @root %>
+
+  <p> <%= @word %> is a valid word. </p>
+  <p class="root-form">
+    The root of <%= @word %> is <%= @root %>.
+  </p>
+
+<% else %>
+  <p><% @word %> is not a valid word.</p> 
+<% end %>
