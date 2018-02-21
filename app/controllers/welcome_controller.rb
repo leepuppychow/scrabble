@@ -17,12 +17,12 @@ class WelcomeController < ApplicationController
 
     response = @connection.get("inflections/en/#{@word}")
 
-    binding.pry
-    body = JSON.parse(response.body, symbolize_names: true)
-
-    @root = body[:results].first[:lexicalEntries].first[:inflectionOf].first[:id]
-
-    render :index
-
+    if response.status == 200
+      body = JSON.parse(response.body, symbolize_names: true)
+      @root = body[:results].first[:lexicalEntries].first[:inflectionOf].first[:id]
+      render :index
+    elsif response.status == 404
+      render :invalid
+    end
   end
 end

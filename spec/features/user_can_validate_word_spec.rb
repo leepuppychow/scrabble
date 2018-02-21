@@ -26,12 +26,14 @@ describe "As a user when I visit the '/' path" do
 
   context "and I fill in a text box with foxez and click Validate Word" do
     it "should see that foxez is not a valid word" do
-      visit '/'
+      VCR.use_cassette("foxez") do
+        visit '/'
 
-      fill_in "word", with: "foxez"
-      click_on "Validate Word"
+        fill_in "word", with: "foxez"
+        click_on "Validate Word"
 
-      expect(page).to have_content "foxez is not a valid word"
+        expect(page).to have_content "foxez is not a valid word"
+      end
     end
   end
 end
