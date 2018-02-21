@@ -18,6 +18,4 @@ class GameSerializer < ActiveModel::Serializer
     ]
   end
 
-
-
 end

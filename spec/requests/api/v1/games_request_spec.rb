@@ -31,6 +31,13 @@ describe "Games API" do
   end
 
   context "POST requests" do
+    it "can send a user_id and word through the params to update a game" do
+      game_params = {user_id: 1, word: "at"}
+
+      post "/api/v1/games/#{@game.id}", params: game_params
+
+      expect(response).to be_success
+    end
 
   end
 end
