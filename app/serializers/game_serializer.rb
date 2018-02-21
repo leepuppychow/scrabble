@@ -9,11 +9,11 @@ class GameSerializer < ActiveModel::Serializer
     [
       {
         "user_id": object.player_1.id,
-        "score": 5
+        "score": object.player_1.total_score
       },
       {
         "user_id": object.player_2.id,
-        "score": 10
+        "score": object.player_2.total_score
       }
     ]
   end
