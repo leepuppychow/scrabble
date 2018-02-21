@@ -4,4 +4,5 @@ class User < ApplicationRecord
   def total_score
     plays.sum(:score)
   end
+  
 end

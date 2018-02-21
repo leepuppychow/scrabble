@@ -29,20 +29,35 @@ describe "Games API" do
 
 
   it "(POST) can send a user_id and word through the params to update a game" do
-    game_params = {user_id: 1, word: "at"}
+    VCR.use_cassette("at") do
+      game_params = {user_id: 1, word: "at"}
 
-    post "/api/v1/games/#{@game.id}", params: game_params
+      post "/api/v1/games/#{@game.id}", params: game_params
 
-    expect(response).to be_success
+      expect(response).to be_success
 
-    game_score = JSON.parse(response.body)
-    expect(game_score).to be_a Hash
-    expect(game_score["game_id"]).to eq @game.id
-    expect(game_score["scores"]).to be_a Array
-    expect(game_score["scores"].first["user_id"]).to eq @josh.id
-    expect(game_score["scores"].second["user_id"]).to eq @sal.id
-    expect(game_score["scores"].first["score"]).to eq 17
-    expect(game_score["scores"].second["score"]).to eq 16
+      game_score = JSON.parse(response.body)
+      expect(game_score).to be_a Hash
+      expect(game_score["game_id"]).to eq @game.id
+      expect(game_score["scores"]).to be_a Array
+      expect(game_score["scores"].first["user_id"]).to eq @josh.id
+      expect(game_score["scores"].second["user_id"]).to eq @sal.id
+      expect(game_score["scores"].first["score"]).to eq 17
+      expect(game_score["scores"].second["score"]).to eq 16
+    end
+  end
+
+  it "(POST) will not allow invalid word to be added" do
+    VCR.use_cassette("notarealword") do
+      game_params = {user_id: 1, word: "notarealword"}
+
+      post "/api/v1/games/#{@game.id}", params: game_params
+      expect(response).to be_success
+      body = JSON.parse(response.body)
+
+      expect(body).to be_a Hash
+      expect(body["message"]).to eq "notarealword is not a valid word."
+    end
   end
 
 end
