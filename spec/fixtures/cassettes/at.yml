@@ -1,0 +1,107 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://od-api.oxforddictionaries.com/api/v1/inflections/en/at
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      App-Id:
+      - aec7fd15
+      App-Key:
+      - 32b097312453f54f4de69b9d8c63f47e
+      User-Agent:
+      - Faraday v0.14.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 21 Feb 2018 17:53:56 GMT
+      Server:
+      - openresty/1.9.7.4
+      Version:
+      - v3.6.1-32-gd5e2d53
+      Content-Length:
+      - '1912'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "metadata": {
+                "provider": "Oxford University Press"
+            },
+            "results": [
+                {
+                    "id": "at",
+                    "language": "en",
+                    "lexicalEntries": [
+                        {
+                            "inflectionOf": [
+                                {
+                                    "id": "at",
+                                    "text": "At"
+                                },
+                                {
+                                    "id": "at",
+                                    "text": "at"
+                                }
+                            ],
+                            "language": "en",
+                            "lexicalCategory": "Preposition",
+                            "text": "at"
+                        },
+                        {
+                            "inflectionOf": [
+                                {
+                                    "id": "at",
+                                    "text": "At"
+                                },
+                                {
+                                    "id": "at",
+                                    "text": "at"
+                                }
+                            ],
+                            "language": "en",
+                            "lexicalCategory": "Other",
+                            "text": "At"
+                        },
+                        {
+                            "grammaticalFeatures": [
+                                {
+                                    "text": "Singular",
+                                    "type": "Number"
+                                }
+                            ],
+                            "inflectionOf": [
+                                {
+                                    "id": "at",
+                                    "text": "At"
+                                },
+                                {
+                                    "id": "at",
+                                    "text": "at"
+                                }
+                            ],
+                            "language": "en",
+                            "lexicalCategory": "Noun",
+                            "text": "at"
+                        }
+                    ],
+                    "word": "at"
+                }
+            ]
+        }
+    http_version: 
+  recorded_at: Wed, 21 Feb 2018 17:53:56 GMT
+recorded_with: VCR 4.0.0
