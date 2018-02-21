@@ -33,11 +33,3 @@ class ValidateWordService
     end
 
 end
-
-# if response.status == 200
-#   body = JSON.parse(response.body, symbolize_names: true)
-#   @root = body[:results].first[:lexicalEntries].first[:inflectionOf].first[:id]
-#   render :valid
-# elsif response.status == 404
-#   render :invalid
-# end

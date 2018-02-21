@@ -8,7 +8,7 @@ require 'rails_helper'
 describe "As a user when I visit the '/' path" do
   context "And I fill in a text box with foxes and click Validate Word" do
     it "should see that foxes is valid and its root form is fox" do
-      VCR.use_cassette("word-validate-foxes") do
+      VCR.use_cassette("foxes") do
         visit '/'
 
         fill_in "word", with: "foxes"
