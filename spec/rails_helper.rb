@@ -11,6 +11,7 @@ require 'support/factory_bot'
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/cassettes"
   config.hook_into :webmock
+  config.filter_sensitive_data("my_api_id") {ENV["OXFORD_API_ID"]}
   config.filter_sensitive_data("my_api_key") {ENV["OXFORD_API_KEY"]}
 end
 
